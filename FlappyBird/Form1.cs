@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FlappyBird
@@ -28,12 +21,12 @@ namespace FlappyBird
             pipTop.Left -= pipeSpeed;
             scoreText.Text = "Score:" + score;
 
-            if(pipeBottom.Left < -150)
+            if (pipeBottom.Left < -150)
             {
                 pipeBottom.Left = 800;
                 score++;
             }
-            if(pipTop.Left < -180)
+            if (pipTop.Left < -180)
             {
                 pipTop.Left = 950;
                 score++;
@@ -41,27 +34,27 @@ namespace FlappyBird
 
             if (flappyBird.Bounds.IntersectsWith(pipeBottom.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipTop.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < -25 
-                )
+                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < -25)
             {
                 endGame();
             }
 
-            if(score > 5)
+          
+
+            if (score > 5)
             {
                 pipeSpeed = 15;
             }
-
-           
-
         }
 
         private void gamekeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space)
             {
                 gravity = -15;
             }
+
+            
         }
 
         private void gamekeyUp(object sender, KeyEventArgs e)
@@ -77,7 +70,5 @@ namespace FlappyBird
             gameTimer.Stop();
             scoreText.Text += "  Game Over!!!";
         }
-
-        
     }
 }
